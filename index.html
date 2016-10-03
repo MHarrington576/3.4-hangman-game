@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
+    <title>Hangman Game</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>JavaScript Hangman</h1>
+      <h2>Current Game:</h2>
+      <div class="guessed">
+        <h3 class="lives">
+          <p class="life-count">Lives: <span class="remaining-lives">5</span></p>
+        </h3>
+      </div>
+      <span>Your word is...</span>
+      <div class="unknown-word-container">
+        <span class="the-word"></span>
+      </div>
+      <div class="onscreen-input">
+        <form class="basic-guess">
+          <input type="text" id="guess" name="guess" maxlength="1" value="" placeholder="Your guess">
+          <input type="button" id="guess-button" name="guess-button" value="guess">
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="js/common-words.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
