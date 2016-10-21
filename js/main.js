@@ -9,12 +9,12 @@
 
   var secretWord = randomization();
   var guessesLeft = 10;
-  var guessButton = document.getElementById("guess-button");
-    guessButton.addEventListener('click', retrieve());
+  var guessButton = document.getElementById("guess-button")
+  guessButton.addEventListener('click', retrieve);
   var wordContainer = document.querySelector(".unknown-word-container");
   var header = document.querySelector("h2");
   var correctGuesses = 0;
-  var remainingGuesses = document.getElementById("remaining-lives");
+  var remainingGuesses = document.getElementById("remaining-lives").textContent;
   var secretWordContainer = document.querySelector(".unknown-word-container");
 
   console.log(secretWord);
@@ -25,8 +25,9 @@
   }
 
   function retrieve(){
-    var guess = document.getElementById("guess");
-    var guessedLetter = guess.value;
+    var guessedLetter = document.getElementById("guess").value;
+    // console.log(guess);
+    // var guessedLetter = guess.value;
     comparison(guessedLetter);
     decreaseGuesses();
     guess.value = "";
@@ -35,7 +36,8 @@
   function comparison(guessedLetter){
     for (var i = 0; i < secretWord.length; i++){
       if(secretWord[i] == guessedLetter) {
-        wordContainer.children[i].textContent = guessedLetter;
+        console.log(wordContainer);
+        wordContainer.children[i+1].textContent = guessedLetter;
         correctGuesses += 1;
       }
       if(correctGuesses == secretWord.length){
@@ -45,6 +47,7 @@
   }
 
   function decreaseGuesses(){
+    console.log(remainingGuesses);
     remainingGuesses -= 1;
     var guessNumber = document.getElementById("remaining-lives");
     guessNumber.textContent = remainingGuesses;
@@ -60,7 +63,8 @@
   for(var i = 0; i < secretWord.length; i++){
     var blankSpaces = document.createElement("span");
     var blankSpacesContent = document.createTextNode("_");
-    secretWordContainer.appendChild(blankSpacesContent);
+    blankSpaces.appendChild(blankSpacesContent);
+    secretWordContainer.appendChild(blankSpaces);
   }
 
 }());
